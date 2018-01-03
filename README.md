@@ -13,7 +13,6 @@ This is the right place to start if you are planning to build or want to learn t
 * [Filestore API](#filestore-apis)
 * [Custom service](#custom-service)
 * [Migrate from an existing react app](#migrate-from-an-existing-react-app)
-* [Local development](#local-development)
 * [Project Structure](#project-structure)
 
 ## Introduction
@@ -182,27 +181,6 @@ ui
 - `git push hasura master`
 
 Now your existing app should be running on `https://ui.cluster-name.hasura-app.io`
-
-## Local development
-
-Everytime you push, your code will get deployed on a public URL. However, for faster iteration you should locally test your changes.
-
-### Testing your react app locally
-
-```sh
-$ cd services/ui/app
-$ npm start
-```
-
-### Testing your custom service locally
-
-Since we are directly accessing the internal data endpoint (Read more about internal and external endpoints here) in the nodejs-express app. We need to forward our requests to the port at which the data service is running.
-
-```sh
-$ hasura forward -s data -n hasura --local-port 6432 --remote-port 8080
-$ cd services/api/app
-$ ENVIRONMENT=dev npm start
-```
 
 [data1]: https://github.com/hasura/hello-react/blob/master/readme-assets/data-1.png
 [data2]: https://github.com/hasura/hello-react/blob/master/readme-assets/data-2.png
